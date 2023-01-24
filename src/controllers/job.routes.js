@@ -5,8 +5,8 @@ const app = express.Router();
 
 app.get("/", async (req, res) => {
   try {
-    const jobs = Job.find({});
-    res.send({ error: true, jobs, message: "Job fetch Successful" });
+    const jobs = await Job.find({});
+    res.send({ error: false, jobs, message: "Job fetch Successful" });
   } catch (error) {
     res.send({ error: true, message: "something went wrong" });
   }
